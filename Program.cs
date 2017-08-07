@@ -10,12 +10,19 @@ namespace Rock_Scissor_Paper
             Console.WriteLine("Welcome to the game Rock-Scissor-Paper!");
             Console.WriteLine("It's time for you to pick (Rock=r,Scissor=s,Paper=p");
             Random rand = new Random();
+            
             string playerinput =Console.ReadLine();
+            
             playerChoice(playerinput);
-            int computerinput = rand.Next(1,3); 
+            
+            int computerinput = rand.Next(1,3);
+            
             CPUChoice(computerinput);
+            
             Battle(playerinput,computerinput);
-
+            
+            Score(playerinput,computerinput);
+            
             Console.ReadKey();
         }
         public static void Battle(string p,int c){
@@ -42,6 +49,37 @@ namespace Rock_Scissor_Paper
             if (p =="P"||p=="p" && c == 3)
             Console.WriteLine("Tie");
         }
+        public static void Score(string p , int c){
+           int   pointsOfplayer = 0 ;
+           
+           int pointsOfcomputer = 0;
+             if (p =="R"||p=="r" && c == 2){
+            
+            pointsOfplayer++;
+            
+            }
+            if (p =="R"||p=="r" && c == 3){
+           
+            pointsOfcomputer++;
+            }
+            if (p =="S"||p=="s" && c == 1){
+             
+             pointsOfcomputer++;
+            } 
+             if (p =="S"||p=="s" && c == 3){
+            
+            pointsOfplayer++;
+            }
+             if (p =="P"||p=="p" && c == 1){
+             
+             pointsOfplayer++;
+            }
+            if (p =="P"||p=="p" && c == 2){
+            pointsOfcomputer++;
+            }
+             Console.WriteLine("The score is You:"+pointsOfplayer +"-"+pointsOfcomputer);
+          }
+
 
         public static string playerChoice(string input){
            
